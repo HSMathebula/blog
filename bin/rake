@@ -1,4 +1,6 @@
+# rubocop:disable all
 #!/usr/bin/env ruby.exe
 require_relative '../config/boot'
 require 'rake'
 Rake.application.run
+# rubocop:enable all
