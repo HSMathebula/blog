@@ -1,24 +1,36 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The Blog app will be a classic example of a blog website. I created a fully functional website that will show the list of posts and empower readers to interact with them by adding comments and liking posts.
 
-Things you may want to cover:
+## Getting Started
+- To setup the project First clone this repo using the git command line  :
+> https://github.com/HSMathebula/Blog-App.git
+- Then you install the depencies
+> bundle install
+- setup the database
+> rails db:create
+> rails db:migrate
+> rails db:seed 
+- Finally run the app 
+> rails s
 
-* Ruby version
+## Authors
+**Happen S Mathebula**
 
-* System dependencies
+- GitHub: [@HSMathebula](https://github.com/HSMathebula)
+- Twitter: [@Happen-Mathebula](https://twitter.com/HappenSipho)
+- LinkedIn: [@happen-sipho-mathebula](www.linkedin.com/in/happen-sipho-mathebula)
 
-* Configuration
+## 🤝 Contributing
+Contributions, issues, and feature requests are welcome!
 
-* Database creation
+Feel free to check the [issues page](../../issues/).
 
-* Database initialization
+## Show your support
+Give a ⭐️ if you like this project!
 
-* How to run the test suite
+## Acknowledgments
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Hat tip to anyone whose code was used
+- Inspiration
+- etc
