@@ -12,4 +12,9 @@ RSpec.describe Post, type: :model do
     subject.title = nil
     expect(subject).to_not be_valid
   end
+
+  it 'title shoud be maximum 250 character' do
+    subject.title = 'long title' * 50
+    expect(subject).to_not be_valid
+  end
 end
