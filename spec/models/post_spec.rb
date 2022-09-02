@@ -37,4 +37,9 @@ RSpec.describe Post, type: :model do
     subject.likes_counter = 0
     expect(subject).to be_valid
   end
+
+  it 'should update post counter' do
+    expect(subject.update_posts_counter).to eq true
+    expect(subject.author.posts_counter).to eq 2
+  end
 end
