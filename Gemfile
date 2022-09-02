@@ -46,6 +46,8 @@ gem 'bootsnap', require: false
 
 gem 'ffi', '~> 1.15', '>= 1.15.5'
 
+gem 'database_cleaner', '~> 2.0', '>= 2.0.1'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
