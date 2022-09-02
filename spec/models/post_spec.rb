@@ -17,4 +17,9 @@ RSpec.describe Post, type: :model do
     subject.title = 'long title' * 50
     expect(subject).to_not be_valid
   end
+
+  it 'comments counter should be greater than 0' do
+    subject.comments_counter = -5
+    expect(subject).to_not be_valid
+  end
 end
