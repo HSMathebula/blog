@@ -82,6 +82,6 @@ test:
 #
 production:
   <<: *default
-  database: blog_production
-  username: blog
-  password: <%= ENV["BLOG_DATABASE_PASSWORD"] %>
+  database: blog_db
+  username: postgres
+  password: WrittersHand@8
