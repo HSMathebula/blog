@@ -59,7 +59,6 @@ development:
 test:
   <<: *default
   database: blog_db
-  password: WrittersHand@8
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -83,6 +82,6 @@ test:
 #
 production:
   <<: *default
-  database: blog_db
+  database: blog_production
   username: blog
   password: <%= ENV["BLOG_DATABASE_PASSWORD"] %>
