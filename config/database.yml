@@ -84,5 +84,6 @@ test:
 production:
   <<: *default
   database: blog_production
-  username: blog
-  password: <%= ENV["BLOG_DATABASE_PASSWORD"] %>
+  port: 5432
+  username: postgres
+  password: postgres
