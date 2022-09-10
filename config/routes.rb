@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
   root 'users#index'
   resources :users, only: [:index, :show] do
-    resources :posts, only: [:index, :show]
+    resources :posts, only: [:index, :show, :new, :create]
   end
-  get "/posts/new", to: "posts#new"
-  post "posts/new", to: "posts#create"
-  get '/comments/new', to: "comments#new"
-  post '/comments/new', to: "comments#create"
-  post '/likes/new', to: "likes#create"
+  resources :posts do
+    resources :comments, only: [:new, :create]
+    resources :likes, only: [:create]
+  end
 end

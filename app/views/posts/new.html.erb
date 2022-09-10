@@ -1,6 +1,6 @@
 <h1>new post</h1>
 
-<%= form_with model: @post, url: posts_new_path do |form| %>
+<%= form_with model: @post do |form| %>
 <div>
   <%= form.text_field :title, placeholder: "title" %> <br><br>
   <%= form.text_area :text, placeholder: "text" %><br><br>

@@ -5,7 +5,7 @@
   </div>
   <p class="post-text"><%= @post.text%></p>
 
-  <%= form_with model: @like, url: likes_new_path do |form|%>
+  <%= form_with model: @like, url:post_likes_path(@post) do |form|%>
     <%= form.hidden_field :post_id, value: @post.id %>
     <%= form.submit "♥︎"  %>
   <% end %>
@@ -16,7 +16,7 @@
     <p><%= comment.author.name %>: <%= comment.text %></p>
   <% end %>
 
-  <%= form_with model: @comment, url: comments_new_path do |form| %>
+  <%= form_with model: @comment, url:post_comments_path(@post) do |form| %>
     <div>
       <%= form.hidden_field :author_id, value: @post.author.id %>
       <%= form.hidden_field :post_id, value: @post.id %>
