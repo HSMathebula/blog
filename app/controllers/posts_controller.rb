@@ -19,7 +19,6 @@ class PostsController < ApplicationController
     @post = Post.new(title: params[:post][:title], text: params[:post][:text], author_id: current_user.id)
     if @post.save
       redirect_to "/users/#{current_user.id}/posts"
-
     else
       render :new
     end
