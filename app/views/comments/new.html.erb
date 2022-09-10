@@ -1,0 +1,8 @@
+<h1>new comments</h1>
+
+<%= form_with model: @comment do |form| %>
+    <div>
+        <%= form.text_field :comment, placeholder: "comment" %> <br><br>
+        <%= form.submit %>
+    </div>
+<% end %>
