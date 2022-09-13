@@ -1,15 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  subject do
-    u = User.new(name: 'Huseyin', photo: 'google.com', bio: 'I was born in 2055', posts_counter: '0')
-    p = Post.create(title: 'TestTitle', text: 'TestText', comments_counter: '0', likes_counter: '0', author: u)
-    Comment.create(text: 'First comment', author: u, post: p)
-    Comment.create(text: 'Second comment', author: u, post: p)
-  end
+  author = User.new(name: 'John', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Bio', posts_counter: 0)
+  post = Post.new(title: 'Hi post', text: 'This is my first post', author:, likes_counter: 0, comments_counter: 0)
+  post.save!
 
-  it 'should update comments counter' do
-    expect(subject.update_comments_counter).to eq true
-    expect(subject.post.comments_counter).to eq 2
+  commentor = User.new(name: 'Tim', photo: 'cool photo link', bio: 'Bio', posts_counter: 0)
+  commentor.save!
+
+  post.comments.create!(text: 'Say hi', author: commentor)
+  post.comments.create!(text: 'Say hello', author: commentor)
+  post.comments.create!(text: 'Say bye', author: commentor)
+  it 'adds a comment' do
+    expect(post.comments.length).to eql(3)
   end
 end
