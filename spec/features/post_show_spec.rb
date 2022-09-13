@@ -2,8 +2,10 @@ require 'rails_helper'
 describe 'Posts-show', type: :feature do
   describe 'users/posts/show' do
     before(:each) do
-      @user_one = User.create! name: 'Tom', photo: 'https://unsplash.com/photos/l-T-LpQnNRg', bio: 'designer', posts_counter: 0
-      @user_two = User.create! name: 'Happen', photo: 'https://unsplash.com/photos/l-T-LpQnNRg', bio: 'developper', posts_counter: 0
+      @user_one = User.create! name: 'Tom', photo: 'https://unsplash.com/photos/l-T-LpQnNRg', bio: 'designer',
+                               posts_counter: 0
+      @user_two = User.create! name: 'Happen', photo: 'https://unsplash.com/photos/l-T-LpQnNRg', bio: 'developper',
+                               posts_counter: 0
       @post1 = @user_one.posts.create!(title: 'first post', text: 'description', comments_counter: 0, likes_counter: 0)
       @post2 = @user_one.posts.create!(title: 'second post', text: 'description', comments_counter: 0, likes_counter: 0)
       @comment_one = @post1.comments.create!(text: 'comment one', author_id: @user_one.id)

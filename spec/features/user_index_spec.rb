@@ -1,8 +1,9 @@
-require 'rails_helper'   
+require 'rails_helper'
 
 RSpec.describe 'Users', type: :feature do
   describe 'user#index' do
     before(:each) do
+      User.create! name: 'Tom', photo: 'https://unsplash.com/photos/l-T-LpQnNRg', bio: 'designer', posts_counter: 0
       User.create! name: 'Happen', photo: 'https://unsplash.com/photos/l-T-LpQnNRg', bio: 'developper', posts_counter: 0
       visit root_path
       @user = User.first!
