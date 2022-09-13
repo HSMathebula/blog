@@ -14,7 +14,6 @@ gem 'jbuilder'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'bootsnap', require: false
 gem 'ffi', '~> 1.15', '>= 1.15.5'
-gem 'database_cleaner', '~> 2.0', '>= 2.0.1'
 gem 'bullet'
 
 group :development, :test do
@@ -23,6 +22,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'database_cleaner', '~> 2.0', '>= 2.0.1'
 end
 
 group :development do
