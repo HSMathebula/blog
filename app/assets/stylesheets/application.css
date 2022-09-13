@@ -1,101 +1,108 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-
-body {
-  text-align: center;
-  padding: 50px;
-}
-
-.user-container {
+.post-partial,
+.bio,
+.comments,
+.post {
   display: flex;
-  margin-bottom: 30px;
-  column-gap: 100px;
+  border: 2px solid #333;
+  border-radius: 3px;
+  margin: 10px 0;
+  padding: 5px 10px;
+  width: calc(100% - 20px);
+  flex-direction: column;
+  gap: 10px;
+  list-style-type: none;
 }
 
-.user-info-container {
-  border: 1px solid;
-  width: 70%;
+.post h3 {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.post .post-stats {
   display: flex;
-  align-items: center;
-  justify-content: space-around;
+  justify-content: flex-end;
+  margin-top: 0;
+  padding-top: 0;
 }
 
-.user-name {
-  font-size: 72px;
+.post-partial * {
   margin: 0;
 }
 
-.user-photo {
-  width: 150px;
-  height: 150px;
-  border: 1px solid black;
-}
-
-.post-counter {
-  align-self: flex-end;
-  font-size: 28px;
-}
-
-.user-bio {
-  text-align: left;
-  width: 100%;
-  border: 1px solid black;
-  font-size: 24px;
-}
-
-.single-post-container {
-  width: 100%;
+.post-partial .post-stats {
   display: flex;
-  flex-wrap: wrap;
-  border: 1px solid black;
-  margin-bottom: 30px;
-  padding: 10px;
+  justify-content: flex-end;
 }
 
-.post-text {
-  width: 100%;
-  font-size: 24px;
-  text-align: left;
+.comments {
+  margin-top: -9px;
 }
 
-.likes-comments {
-  font-size: 18px;
-  text-align: right;
-  margin-left: auto;
+.see-all {
+  white-space: nowrap;
+  width: 100px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.more-btn {
-  border: 1px solid black;
-  padding: 10px;
+a {
+  text-decoration: none;
 }
 
-.comment-container {
-  border: 1px solid black;
-  margin-bottom: 50px;
-  text-align: left;
+.new_like {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  margin-top: -9px;
 }
 
-.one-post-container {
-  border: 1px solid black;
+.see-all-btn {
+  display: block;
+  width: 100px;
+  margin: 0 auto;
+  padding: 5px 10px;
+  box-shadow: 0 1px 8px 1px rgba(0, 0, 0, 0.8);
+  border-radius: 3px;
+  margin-top: 10px;
 }
 
-.heading {
+.new_comment {
+  display: flex;
+  flex-flow: column;
+}
+
+.new_comment #comment_text {
+  display: inline-block;
+  width: 40%;
+  height: 100px;
+}
+
+.new_comment input {
+  width: fit-content;
+}
+
+.registration {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding-left: 10px;
-  padding-right: 10px;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-button {
+  width: 100%;
+  padding: 0.5rem;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+.login-text {
+  text-align: center;
+}
+
+.links-signup {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
 }
