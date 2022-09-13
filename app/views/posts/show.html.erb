@@ -1,27 +1,29 @@
-<div class="one-post-container">
-  <div class="heading">
-    <h2><%= @post.title %> by <%= @post.author.name %></h2>
-    <p>Comments: <%= @post.comments_counter %> Likes: <%= @post.likes_counter %></p>
+<article class="post">
+  <h3><%= @post.title %>  by <%= link_to @post.author.name, user_path(@post.author_id) %></h3>
+  <div class="post-stats">
+    <span>Comments: <%= @post.comments_counter %>, &nbsp;</span>
+    <span>Likes: <%= @post.likes_counter %></span>
   </div>
-  <p class="post-text"><%= @post.text%></p>
+  <p><%= @post.text %></p>
+</article>
 
-  <%= form_with model: @like, url:post_likes_path(@post) do |form|%>
-    <%= form.hidden_field :post_id, value: @post.id %>
-    <%= form.submit "♥︎"  %>
+<ul class="comments">
+  <% @post.recent_comments.each do |comment| %>
+    <li><%= comment.author.name %>: <%= comment.text %>
   <% end %>
-</div>
+</ul>
 
-<div class="comment-container">
-  <% @post.comments.each do |comment| %>
-    <p><%= comment.author.name %>: <%= comment.text %></p>
-  <% end %>
+<%= form_for @like, url:likes_path do |f|%>
+  <%= f.hidden_field :author_id, value: @post.author.id %>
+  <%= f.hidden_field :post_id, value: @post.id %>
+  <%= f.submit "Like", disable_with: 'updating likes...!!!' %>
+<% end %>
 
-  <%= form_with model: @comment, url:post_comments_path(@post) do |form| %>
-    <div>
-      <%= form.hidden_field :author_id, value: @post.author.id %>
-      <%= form.hidden_field :post_id, value: @post.id %>
-      <%= form.text_area :text, placeholder: "text" %><br><br>
-      <%= form.submit %>
-    </div>
-  <%end%>
-</div>
+<h4>Add comment</h4>
+<%= form_for @comment, url:comments_path do |f| %>
+  <%= f.hidden_field :author_id, value: @post.author.id %>
+  <%= f.hidden_field :post_id, value: @post.id %>
+  <%= f.label :text %><br />
+  <%= f.text_area :text, placeholder:'Add your Comment' %><br />
+  <%= f.submit "Submit comment", class:'btn', disable_with: 'Submiting Comment...!!!' %>
+<% end %>
