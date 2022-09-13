@@ -20,7 +20,8 @@ class PostsController < ApplicationController
     @post = Post.new(posts_params)
     @author = current_user.id
     if @post.save
-      redirect_to user_posts_path(id: @post.id, author_id: @author, comments_counter: @post.comments_counter, likes_counter: @post.likes_counter)
+      redirect_to user_posts_path(id: @post.id, author_id: @author, comments_counter: @post.comments_counter,
+                                  likes_counter: @post.likes_counter)
     else
       render :new, status: :unprocessable_entity, content_type: 'text/html'
       headers['Content-Type'] = 'text/html'

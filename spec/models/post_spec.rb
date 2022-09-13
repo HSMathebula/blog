@@ -1,54 +1,31 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
+  user = User.create(name: 'Jane', bio: 'Teacher in Mexico.')
+  user.save
+
   subject do
-    u = User.new(name: 'Happen', photo: 'google.com', bio: 'I was born in 1900', posts_counter: '0')
-    Post.create(title: 'TestTitle1', text: 'TestText', comments_counter: '0', likes_counter: '0', author: u)
-    Post.create(title: 'TestTitle2', text: 'TestText', comments_counter: '0', likes_counter: '0', author: u)
+    Post.new(title: 'Greetings', text: 'Hello Wolrd!', author: user)
   end
+
   before { subject.save }
 
-  it 'title should be present' do
+  it 'should have 250 characters' do
+    subject.title = 'lorem' * 255
+    expect(subject).to_not be_valid
+  end
+
+  it 'should check if title is available' do
     subject.title = nil
     expect(subject).to_not be_valid
   end
 
-  it 'title shoud be maximum 250 character' do
-    subject.title = 'long title' * 50
+  it 'should have post counter greater or equal to zero' do
+    subject.likes_counter = -1
     expect(subject).to_not be_valid
   end
 
-  it 'comments counter should be greater than 0' do
-    subject.comments_counter = -5
-    expect(subject).to_not be_valid
-  end
-
-  it 'likes counter should be greater than 0' do
-    subject.likes_counter = -5
-    expect(subject).to_not be_valid
-  end
-
-  it 'comments counter should be equal to 0' do
-    subject.comments_counter = 0
-    expect(subject).to be_valid
-  end
-
-  it 'likes counter should be equal to 0' do
-    subject.likes_counter = 0
-    expect(subject).to be_valid
-  end
-
-  it 'should update post counter' do
-    expect(subject.update_posts_counter).to eq true
-    expect(subject.author.posts_counter).to eq 2
-  end
-
-  it 'should list last five comments' do
-    6.times do |i|
-      Comment.create(text: "test comment #{i}", post: subject, author: subject.author)
-    end
-
-    expect(subject.last_five_comment.last.text).to eq 'test comment 1'
-    expect(subject.last_five_comment.length).to eq 5
+  it 'should only load the most recent 5 comments' do
+    expect(subject.recent_comments).to eq(subject.comments.last(5))
   end
 end
