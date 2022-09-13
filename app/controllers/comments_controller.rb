@@ -4,12 +4,14 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(post_id: params[:post_id], author_id: current_user.id, text: params[:text])
-    if @comment.save
-      @comment.update_comments_counter
-      redirect_to '/'
-    else
-      flash[:error] = 'There is an error'
-    end
+    @comment = Comment.new(comment_params)
+    @author = current_user.id
+    redirect_to user_posts_path(id: @comment.post_id, author_id: @author) if @comment.save
+  end
+
+  private
+
+  def comment_params
+    params.require(:comment).permit(:text, :author_id, :post_id)
   end
 end
