@@ -5,6 +5,7 @@ ruby '3.1.2'
 gem 'bootsnap', require: false
 gem 'bullet'
 gem 'devise'
+gem 'letter_opener'
 gem 'ffi', '~> 1.15', '>= 1.15.5'
 gem 'importmap-rails'
 gem 'jbuilder'
