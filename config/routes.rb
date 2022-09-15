@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   #   get 'users', to: 'devise/sessions#new'
   # end
   devise_for :users
-  root 'users#index'
+  root to: 'users#index'
   resources :users, only: %i[:index :show] do
     resources :posts, only: %i[:index :show :new :create]
   end
