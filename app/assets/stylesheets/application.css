@@ -108,26 +108,26 @@ a {
 }
 
 .submit-button {
-  width:91%;
-  padding :7px; 
+  width: 91%;
+  padding: 7px;
   background-color: white;
   margin: 10px;
 }
 
 .submit-field {
-  width:90%;
-  padding :7px; 
+  width: 90%;
+  padding: 7px;
   margin: 10px;
 }
 
 .user-form {
-  display: felx;
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .submit-label {
-  margin: 10px; 
+  margin: 10px;
 }
 
 .title {
