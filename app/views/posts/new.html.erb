@@ -10,7 +10,7 @@
     </ul>
   <% end %>
 
-  <%= f.hidden_field :author_id, value: @author %>
+  <%= f.hidden_field :author_id, value: @params ? @params['user_id'] : '' %>
   <%= f.hidden_field :comments_counter, value: 0 %>
   <%= f.hidden_field :likes_counter, value: 0 %>
 
